@@ -1,0 +1,57 @@
+<div class="card-wrapper" role="group" aria-labelledby="card-form-title">
+  <h3 id="card-form-title">Payment Details</h3>
+
+  <h1>fhdfsdfsffds</h1>
+  <label>
+    Card Number
+    
+     <input
+      type="text"
+      inputmode="numeric"
+      maxlength="19"
+      (input)="onCardNumber($event)"
+    />
+  </label>
+
+  <label>
+    Expiry (MM/YY)
+ 
+    <input
+      type="text"
+      maxlength="5"
+      [attr.aria-invalid]="expiryError"
+      (input)="onExpiry($event)"
+    />
+  </label>
+
+  <label>
+    CVC
+    <input
+      type="password"
+      maxlength="4"
+      [attr.aria-invalid]="cvcError"
+      (input)="onCvc($event)"
+    />
+  </label>
+
+  <label>
+    Postal Code
+    
+    <input
+      type="text"      
+      [attr.aria-invalid]="postalError"
+      (input)="onPostal($event)"
+    />
+  </label>
+
+  <button
+    (click)="tokenize()"
+    [disabled]="!formValid"
+  >
+    Pay
+  </button>
+
+  <p class="error" *ngIf="errorMessage" role="alert">
+    {{ errorMessage }}
+  </p>
+</div>
