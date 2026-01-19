@@ -63,6 +63,8 @@ export class PaymentCardComponent {
       this.validationError.emit(this.errorMessage);
       return;
     }
+  
+      this.errorMessage ="";    
 
     // 🔐 Simulated tokenization
     const token = crypto.randomUUID();
